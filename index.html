@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ToolBelt — Two experiences, one marketplace</title>
+<title>ToolBelt · Two experiences, one marketplace</title>
 <script>/* no-flash theme: set before first paint */(function(){try{var t=localStorage.getItem('tb-vision-theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="icon" href="vision-assets/toolbelt-logo-light.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,6 +103,12 @@
   .feat.biz .ic{background:var(--blue-bg)}
   .feat b{font-weight:600}
   .feat span{color:var(--ink-2)}
+  /* emphasized lead bullets (the 3 top talking points) */
+  .feat.lead-feat{margin-top:22px;gap:12px;background:rgba(252,205,10,.07);border:1px solid rgba(252,205,10,.30);border-radius:14px;padding:18px 20px}
+  .feat.lead-feat li{font-size:16px}
+  .feat.lead-feat b{color:var(--ink)}
+  .feat.lead-feat .ic{background:var(--brand)}
+  :root[data-theme="dark"] .feat.lead-feat{background:rgba(252,205,10,.10);border-color:rgba(252,205,10,.34)}
 
   /* device frames */
   .phones{display:flex;gap:16px;justify-content:center;align-items:flex-end}
@@ -239,6 +245,29 @@
     .beam-flow{animation:none;stroke-dasharray:none;opacity:.9}
   }
 
+  /* ===== public-facing growth engine + activation-funnel infographic ===== */
+  .growth{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .funnel{margin:44px auto 0;max-width:980px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
+  .fways{display:flex;flex-direction:column;gap:9px}
+  .feyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1px}
+  .fnode{border:1px solid var(--line);background:var(--bg);border-radius:11px;padding:9px 13px;font-size:13px;font-weight:600;white-space:nowrap}
+  .fnode.alt{border-style:dashed;color:var(--ink-2);font-weight:500}
+  .fpipe{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+  .fstep{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:600;white-space:nowrap}
+  .fstep.fhi{background:var(--brand);color:var(--ink);border-color:transparent}
+  .fconn{position:relative;width:32px;height:3px;border-radius:2px;background:var(--line);overflow:hidden;flex:0 0 auto}
+  .fconn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--brand),transparent);transform:translateX(-120%);animation:fflow 2.1s linear infinite}
+  @keyframes fflow{to{transform:translateX(120%)}}
+  .fbranch{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;margin-top:14px}
+  .fbranch-line{width:2px;height:20px;background:repeating-linear-gradient(var(--ink-3) 0 4px,transparent 4px 8px)}
+  .floop{width:100%;text-align:center;margin-top:18px;font-size:14px;font-weight:600;color:var(--green);display:flex;align-items:center;justify-content:center;gap:8px}
+  .floop-ic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--green-bg);color:var(--green);font-size:15px}
+  .fcap{max-width:640px;margin:22px auto 0;text-align:center;font-size:13.5px;color:var(--ink-3)}
+  .pf-screens{display:flex;gap:16px;justify-content:center;align-items:flex-end;margin-top:44px}
+  .pf-note{max-width:640px;margin:20px auto 0;text-align:center;font-size:12.5px;color:var(--ink-3)}
+  @media(prefers-reduced-motion:reduce){.fconn::after{animation:none;transform:none;opacity:.45}}
+  :root[data-theme="dark"] .fstep.fhi{color:#0c0a09}
+
   /* ===== DARK MODE (item 15b): remap tokens + non-token overrides; brand yellow stays the accent ===== */
   :root[data-theme="dark"]{
     --brand:#FCCD0A; --brand-ink:#ffe08a;
@@ -295,17 +324,17 @@
   <div class="wrap hero-in">
     <span class="badge"><span class="dot"></span> Product vision &middot; internal proposal</span>
     <h1>Two experiences.<br><span class="hl">One marketplace.</span></h1>
-    <p class="lead">Individuals and businesses want completely different things from ToolBelt. So we build two purpose-built products, and connect them where it matters: a two-sided marketplace where workers meet work. The individual side of that marketplace is the <span class="hl">missing link</span> this proposal is really about.</p>
+    <p class="lead">Workers and businesses need different things, so we build two products and connect them at one marketplace. The individual side is the <span class="hl">missing link</span>: a <span class="hl">social app for the trades</span> that grows the whole network.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">Explore the prototype</a>
       <a class="btn btn-ghost" href="#model">See the model</a>
     </div>
     <div class="hero-meta">
-      <span><b>Individual</b> &middot; mobile-forward, native</span>
-      <span><b>Business</b> &middot; desktop-first, responsive</span>
-      <span><b>Marketplace</b> &middot; the meeting point</span>
+      <span><b>Individual</b> &middot; public + social</span>
+      <span><b>Business</b> &middot; private + paid</span>
+      <span><b>Marketplace</b> &middot; where they meet</span>
     </div>
-    <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec. The prototype and Figma files are idea-sharing artifacts; final requirements and designs will evolve with the business team and other designers on the project.</p>
+    <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec. The prototypes and Figma files are idea-sharing artifacts; requirements evolve with the business and product teams and other designers.</p>
   </div>
 </header>
 
@@ -314,7 +343,7 @@
   <div class="wrap">
     <div style="border:1px solid var(--line);border-left:5px solid var(--brand);background:var(--bg-2);border-radius:16px;padding:26px 30px">
       <div class="eyebrow" style="color:var(--brand-ink)">The core bet</div>
-      <p style="font-size:clamp(19px,2.5vw,27px);font-weight:600;letter-spacing:-0.02em;margin-top:10px;line-height:1.32">The streamlined individual experience, think <span class="hl">"Chuck in a truck,"</span> is a <b>separate product</b> from the business app suite. Keeping the two apart, and letting them meet only at the marketplace, is what makes this work. And that individual side, the piece treated most lightly so far, is the <span class="hl">missing link</span> this proposal most needs to align on.</p>
+      <p style="font-size:clamp(19px,2.5vw,27px);font-weight:600;letter-spacing:-0.02em;margin-top:10px;line-height:1.32">The individual experience, <span class="hl">"Chuck in a truck,"</span> is a separate, <b>public app</b>. Keep it apart from the business suite and let them meet only at the marketplace. That separation, and the viral growth it unlocks, is what makes this work. It is also the piece treated most lightly so far, and the <span class="hl">missing link</span> we most need to align on.</p>
     </div>
   </div>
 </section>
@@ -325,7 +354,7 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The model</span>
       <h2>Different needs. One place they meet.</h2>
-      <p class="lead">The two experiences do not mix. They connect only at the marketplace, a two-sided flywheel: businesses bring the jobs, and the streamlined individual experience, with its viral networking loops, brings more users.</p>
+      <p class="lead">The two experiences do not mix. A public, social individual app grows the user base; the business suite posts the work; they meet at the marketplace.</p>
     </div>
 
     <div class="venn-wrap">
@@ -347,18 +376,18 @@
       <div class="cols">
         <div class="col ind">
           <div class="k">Individual</div>
-          <h3>Grow the user base</h3>
-          <p>Individuals and small one-operator companies. Networking and viral loops that pull in more users. Find work, apply, build a profile.</p>
+          <h3>Public + social</h3>
+          <p>Free and public-facing. Activation funnels bring people in; viral loops grow the base.</p>
         </div>
         <div class="col mkt">
           <div class="k">Marketplace</div>
-          <h3>Where they meet (they don't mix)</h3>
-          <p>Jobs flow in from the business side. Users flow in from the individual viral loop. Applications route into the business's Roster. More users attract more businesses, more jobs attract more users.</p>
+          <h3>Where they meet</h3>
+          <p>Jobs from the business side, users from the individual loop. They connect here, they do not mix.</p>
         </div>
         <div class="col biz">
           <div class="k">Business</div>
-          <h3>Vet and hire</h3>
-          <p>Businesses and org admins. CRM-style vetting of contacts in the Roster, labor requests, org, members and permissions, and hiring.</p>
+          <h3>Private + paid</h3>
+          <p>CRM-style vetting, labor requests, org and permissions. A gated upgrade.</p>
         </div>
       </div>
     </div>
@@ -370,17 +399,20 @@
   <div class="wrap">
     <div class="exp">
       <div class="copy">
-        <span class="tag ind">Individual experience &middot; the missing link</span>
-        <h2>The missing link, built for the loop.</h2>
-        <p class="lead">Until now this layer has been treated at a surface level, sketched in the PRDs and referred to in passing while the business suite got the depth. It is the missing link, and the flywheel does not turn without it. A standalone consumer product for individuals and small operators, separate from the business suite, on the proven Indeed model: a mobile-native app (iOS + Android) with a desktop companion that mirrors the exact same UI. It is where the networking and viral growth happen, so it leads on mobile, and it is the layer we most need to align on.</p>
-        <p style="margin-top:16px;font-size:16px;color:var(--ink-2);line-height:1.62">This is not a new idea bolted on. Most people looking for work today are already funneled into a mobile experience they are stuck with. The real opportunity is to upgrade it: modernize the mobile experience end-users are forced into, add the new features that align to where ToolBelt is going, and build a companion desktop app to match. The missing link is the overdue upgrade to the experience users already live in.</p>
+        <span class="tag ind">Individual &middot; the missing link</span>
+        <h2>A social app for the trades.</h2>
+        <p class="lead">This is the public face of ToolBelt and the missing link the flywheel needs. It is the overdue upgrade to the mobile experience workers are already forced into: a social app that runs on activation funnels and viral loops. Mobile-first, with a desktop companion that mirrors it.</p>
+        <ul class="feat ind lead-feat">
+          <li><span class="ic">&#9679;</span><span><b>Social by design.</b> Connect, share work, refer, and invite. Users bring users.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Many ways in.</b> Web, invite links, QR and SMS funnels feed one fast path to first save and first apply.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Viral loops drive growth.</b> Every user can pull in the next. This is the supply engine for the marketplace.</span></li>
+        </ul>
         <ul class="feat ind">
-          <li><span class="ic">&#9679;</span><span><b>Discover and apply, fast.</b> A recommended-work feed, one-tap review-and-send apply, tracking and withdraw.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Primary activation funnel.</b> This is where most users enter, carrying the main activation funnels with clear, direct routes into the business suite, so end-users are led straight to what they need in either experience.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Networking + viral loops.</b> Connections and referrals that grow the user base, the supply side of the marketplace.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Contact management.</b> A contact and roster-style layer for the individual, the same idea as the business Roster but pared down for a one-person "Chuck in a truck" operation.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Native-ready.</b> The mobile UI is the product the native iOS and Android apps are built on.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Desktop companion.</b> The web app mirrors the mobile experience, not a separate product.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Discover and apply fast.</b> Recommended feed, one-tap apply, track and withdraw.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Primary activation funnel.</b> Where most users enter, with clear routes into the business suite.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Simple contacts.</b> A light roster layer, the business Roster pared down for one person.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Native-ready + desktop companion.</b> The mobile UI is the product; the web mirrors it.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Free and public.</b> The business suite is the paid upgrade (sales or self-serve, ToolBelt Pro).</span></li>
         </ul>
       </div>
       <div class="phones">
@@ -392,18 +424,57 @@
   </div>
 </section>
 
+<!-- PUBLIC-FACING GROWTH ENGINE: social growth engine + activation-funnel infographic -->
+<section id="growth" class="growth">
+  <div class="wrap">
+    <div class="sec-head center" style="margin:0 auto">
+      <span class="eyebrow">The growth engine</span>
+      <h2>Funnels in, loops out.</h2>
+      <p class="lead">Many ways in, one fast path to value, then the loop repeats and brings the next users.</p>
+    </div>
+    <div class="funnel" role="img" aria-label="Activation funnel. Ways in (web FTUX, invite or deep link, QR or SMS funnel) lead to browse and search, first save, then first apply. An available-for-work profile branches off, and users connect and share, which pulls the next users in.">
+      <div class="fways">
+        <div class="feyebrow">Ways in</div>
+        <div class="fnode">Web FTUX</div>
+        <div class="fnode">Invite or deep link</div>
+        <div class="fnode">QR or SMS funnel</div>
+      </div>
+      <span class="fconn" aria-hidden="true"></span>
+      <div class="fpipe">
+        <div class="fstep">Browse &amp; search</div>
+        <span class="fconn" aria-hidden="true"></span>
+        <div class="fstep">First save</div>
+        <span class="fconn" aria-hidden="true"></span>
+        <div class="fstep fhi">First apply</div>
+      </div>
+      <div class="fbranch">
+        <span class="fbranch-line" aria-hidden="true"></span>
+        <div class="fnode alt">Available-for-work profile</div>
+      </div>
+      <div class="floop"><span class="floop-ic" aria-hidden="true">&#8635;</span> Users connect and share, pulling the next users in</div>
+    </div>
+    <p class="fcap">Ways in (web, invite, QR and SMS) lead to browse, first save, and first apply. Users connect and share, which pulls the next users in.</p>
+    <div class="pf-screens">
+      <div class="phone small"><img src="vision-assets/ind-notif-mobile.jpg" alt="Public app on mobile: notifications" loading="lazy"></div>
+      <div class="phone"><img src="vision-assets/ind-home-mobile.jpg" alt="Public app on mobile: recommended work feed" loading="lazy"></div>
+      <div class="phone small"><img src="vision-assets/ind-applied-mobile.jpg" alt="Public app on mobile: applied job detail" loading="lazy"></div>
+    </div>
+    <p class="pf-note">Public-facing screens shown from the current consumer prototype; final public app captures will replace these.</p>
+  </div>
+</section>
+
 <!-- INDEED MODEL -->
 <section id="indeed">
   <div class="wrap">
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The proven model</span>
       <h2>This is the Indeed model.</h2>
-      <p class="lead">We are not inventing a structure. Indeed runs the same two-sided split we propose: a mobile-native job-seeker app with a desktop companion, and a separate employer dashboard, connected by matching. Our recommendation is backed by the pattern that already works at scale for labor.</p>
+      <p class="lead">We are not inventing this. Indeed runs a mobile-first job-seeker app and a separate employer dashboard, connected by matching. We are adopting the pattern that already works at scale for labor.</p>
     </div>
     <div class="fly" style="margin-top:40px">
-      <div class="fcard"><h3>Two separate products</h3><p>A job-seeker experience and a separate Employer Dashboard, connected by matching and recommendations, not merged into one app.</p></div>
-      <div class="fcard"><h3>Mobile-native, mobile-first</h3><p>Native iOS and Android (100M+ Android installs), with "apply from your phone" as a first-class flow, plus a desktop companion.</p></div>
-      <div class="fcard"><h3>The market is mobile</h3><p>Roughly two in three job applications are submitted on mobile, and about 95% of users reach the internet on a smartphone.</p></div>
+      <div class="fcard"><h3>Two separate products</h3><p>A job-seeker app and a separate employer dashboard, connected by matching.</p></div>
+      <div class="fcard"><h3>Mobile-first</h3><p>Native iOS and Android, 100M+ installs, apply-from-your-phone as a first-class flow.</p></div>
+      <div class="fcard"><h3>The market is mobile</h3><p>Roughly two in three job applications are submitted on mobile.</p></div>
     </div>
     <p style="margin-top:22px;font-size:13px;color:var(--ink-3)">Sources: Indeed matching + hiring platform, Indeed Employer Dashboard, Indeed mobile app and App Store listing, Appcast mobile-vs-desktop job-search trends.</p>
   </div>
@@ -415,7 +486,7 @@
     <div class="sec-head">
       <span class="eyebrow" style="color:var(--blue)">The business direction &middot; emerging</span>
       <h2>The Next prototype is the emerging shell.</h2>
-      <p class="lead">This is the new emerging direction for the business apps: the Next prototype. We take its portal shell and chrome, and integrate the qualified items from our PRDs plus the UI and micro-interactions we need from Figma into it, not the Figma shell. It brings a portal with auto-matching, a geographic view of jobs and pros, and a matches pipeline. The individual "Chuck in a truck" experience stays a separate product.</p>
+      <p class="lead">The business side is heading to the Next prototype as its shell: auto-matching, a map of jobs and pros, and a matches pipeline. We fold our qualified PRD items and the Figma UI we need into it, not the Figma shell. It is the private, paid counterpart to the individual app.</p>
     </div>
     <div class="stack" style="margin-top:34px">
       <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
@@ -434,13 +505,13 @@
     <div class="exp rev">
       <div class="copy">
         <span class="tag biz">Business capabilities &middot; qualified</span>
-        <h2>The proven suite, folding into the Portal.</h2>
-        <p class="lead">These qualified capabilities from our work fold into the Next prototype shown above. Labor Requests, a CRM-style Roster for vetting contacts, and granular org permissions get integrated into that Portal shell, along with the specific Figma UI and micro-interactions we need. Desktop-first, responsive for the essentials on mobile.</p>
+        <h2>The proven suite, folding in.</h2>
+        <p class="lead">These qualified capabilities fold into the Next shell: a CRM-style Roster for vetting, labor requests, and granular org permissions. Desktop-first, responsive on mobile.</p>
         <ul class="feat biz">
-          <li><span class="ic">&#9679;</span><span><b>Roster, CRM-style.</b> Vet, tag, and track contacts and qualifications, the demand side's hiring pipeline.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Labor requests.</b> A guided create flow with templates, then a rich request detail that posts to the marketplace.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Org, members, permissions.</b> Scoped, ABAC-style access per resource, built for real teams.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Responsive.</b> The full suite reflows to mobile so work does not stop when you leave your desk.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Roster, CRM-style.</b> Vet, tag, and track contacts and qualifications.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Labor requests.</b> Guided create with templates, then a rich detail that posts to the marketplace.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Org and permissions.</b> Scoped, ABAC-style access, built for real teams.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Responsive.</b> The full suite reflows to mobile.</span></li>
         </ul>
       </div>
       <div class="stack">
@@ -456,18 +527,18 @@
   <div class="wrap">
     <div class="strat">
       <span class="eyebrow">Platform strategy</span>
-      <h2>One design system, two device postures.</h2>
+      <h2>One design system, two postures.</h2>
       <div class="strat-grid">
         <div class="scard ind">
           <div class="k">Individual</div>
-          <h3>Mobile-forward, native-destined</h3>
-          <p>The phone is the primary product. Native iOS and Android builds carry the networking and viral loop. The desktop web app mirrors the exact mobile-forward UI.</p>
+          <h3>Mobile-first, native-destined</h3>
+          <p>The phone is the product; the desktop web mirrors it.</p>
           <span class="pill">Primary: phone &middot; Desktop: mirror</span>
         </div>
         <div class="scard biz">
           <div class="k">Business</div>
           <h3>Desktop-first, responsive</h3>
-          <p>The desktop is the primary work surface for org admin, labor requests, and roster. It is responsive so a mobile user can log in and handle the essentials.</p>
+          <p>The desktop is the work surface; mobile handles the essentials.</p>
           <span class="pill">Primary: desktop &middot; Mobile: responsive</span>
         </div>
       </div>
@@ -481,12 +552,12 @@
     <div class="sec-head">
       <span class="eyebrow">The flywheel</span>
       <h2>The marketplace compounds.</h2>
-      <p class="lead">Each side feeds the other. The streamlined individual experience is the acquisition engine for the supply side; the business suite creates the demand.</p>
+      <p class="lead">The public app acquires users through viral loops; the business side posts the work. Each side feeds the other.</p>
     </div>
     <div class="fly">
-      <div class="fcard"><div class="n">1</div><h3>Individuals bring users</h3><p>Viral networking loops on a mobile-forward experience grow the worker base, the supply.</p></div>
-      <div class="fcard"><div class="n">2</div><h3>Businesses bring jobs</h3><p>Org admins post labor requests, creating the demand that makes the marketplace worth showing up for.</p></div>
-      <div class="fcard"><div class="n">3</div><h3>The loop closes</h3><p>Applications route into the Roster; more users attract more businesses, more jobs attract more users.</p></div>
+      <div class="fcard"><div class="n">1</div><h3>Users bring users</h3><p>Viral loops on a social, mobile-first app grow the worker base.</p></div>
+      <div class="fcard"><div class="n">2</div><h3>Businesses bring jobs</h3><p>The business side posts labor requests, the demand.</p></div>
+      <div class="fcard"><div class="n">3</div><h3>The loop closes</h3><p>Applications route into the Roster; users upgrade to the paid business app when they need it.</p></div>
     </div>
   </div>
 </section>
@@ -531,26 +602,26 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The decision</span>
       <h2>Two paths for the individual.</h2>
-      <p class="lead">Same destination: a mobile-forward individual experience that upgrades what job-seekers use today and feeds the marketplace. Two ways to build it. This is the call we are asking the team to make.</p>
+      <p class="lead">Same goal: a public, social app that upgrades what workers use today and feeds the marketplace. Two ways to build it.</p>
     </div>
     <div class="paths">
       <div class="pcard rec">
         <span class="ptag">Recommended</span>
         <h3>A separate individual product</h3>
-        <p class="sum">Build the upgrade as its own standalone, mobile-native app (iOS + Android) with a desktop companion that mirrors it, on the proven Indeed model. Purpose-built for the consumer loop.</p>
+        <p class="sum">Build it as its own mobile-first app with a desktop companion, on the Indeed model.</p>
         <div class="prow">
-          <span class="rk">Best for</span><span class="rv">Maximum acquisition and viral growth, a true consumer-grade experience.</span>
-          <span class="rk">Trade-off</span><span class="rv">More to build: its own codebase and a native app pipeline.</span>
+          <span class="rk">Best for</span><span class="rv">Growth, viral loops, a true consumer feel.</span>
+          <span class="rk">Trade-off</span><span class="rv">More to build, its own codebase and native pipeline.</span>
         </div>
         <a class="plink" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">See the individual prototype &#8599;</a>
       </div>
       <div class="pcard alt">
         <span class="ptag">The former path</span>
         <h3>Minify the business app</h3>
-        <p class="sum">Streamline the Next business app into a lighter, simplified experience for the individual user. Reuses the shell we are already building.</p>
+        <p class="sum">Streamline the Next business app into a lighter individual experience.</p>
         <div class="prow">
-          <span class="rk">Best for</span><span class="rv">Fastest to stand up, one shell to maintain, less new engineering.</span>
-          <span class="rk">Trade-off</span><span class="rv">A consumer experience shaped by a business tool, harder to tune the growth loop.</span>
+          <span class="rk">Best for</span><span class="rv">Speed, one shell to maintain.</span>
+          <span class="rk">Trade-off</span><span class="rv">A consumer app shaped by a business tool, harder to tune the loop.</span>
         </div>
         <a class="plink" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener">See the Next prototype &#8599;</a>
       </div>
@@ -564,7 +635,7 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">Explore it yourself</span>
       <h2>See the whole thing.</h2>
-      <p class="lead">The working prototype and three FigJam boards, from strategy to every screen and interaction.</p>
+      <p class="lead">The working prototype, the boards, and the deck.</p>
     </div>
     <div class="linkgroup">
       <div class="gh">Prototypes</div>
@@ -579,6 +650,13 @@
         <a class="lk" href="https://www.figma.com/board/agvFb5s2g27SVAXBpU4n3Z" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Platform Map</span><span class="lk-d">Device strategy, real UI screenshots</span></span><span class="arrow">&#8599;</span></a>
         <a class="lk" href="https://www.figma.com/board/BjmEbUF8HvvV3y4qwESkcB" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">User Flows</span><span class="lk-d">Web and mobile, both personas</span></span><span class="arrow">&#8599;</span></a>
         <a class="lk" href="https://www.figma.com/board/ouaz6cnUkB7wauTlpbt8Tb" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Journey Maps</span><span class="lk-d">Every screen and interaction</span></span><span class="arrow">&#8599;</span></a>
+        <a class="lk" href="https://www.figma.com/board/TZvirnfukvXOkbb6jffjrk/Consumer-First-Save-Sequence-with-Coachmarks--full-chain-" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Consumer-First Save Sequence</span><span class="lk-d">The full save chain with coachmarks</span></span><span class="arrow">&#8599;</span></a>
+      </div>
+    </div>
+    <div class="linkgroup">
+      <div class="gh">Deck</div>
+      <div class="links">
+        <a class="lk" href="https://docs.google.com/presentation/d/1i5Zm7wcuGRVNKFOJFKSaANX_tPpPU197cFhoeJiNaxw/edit" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Product vision deck</span><span class="lk-d">The pitch, in slides</span></span><span class="arrow">&#8599;</span></a>
       </div>
     </div>
   </div>
