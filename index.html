@@ -137,6 +137,24 @@
   .fcard h3{margin:16px 0 6px}
   .fcard p{font-size:15px;color:var(--ink-2)}
 
+  /* two paths (the decision) */
+  .paths{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
+  @media(min-width:900px){.paths{grid-template-columns:1fr 1fr;gap:24px}}
+  .pcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--bg);border-radius:var(--r);padding:30px}
+  .pcard.rec{border-color:#efd24d;box-shadow:0 0 0 3px rgba(252,205,10,.16)}
+  .ptag{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .pcard.rec .ptag{background:var(--brand);color:var(--ink)}
+  .pcard.alt .ptag{background:var(--bg-3);color:var(--ink-2);border:1px solid var(--line)}
+  .pcard h3{margin:16px 0 8px;font-size:22px}
+  .pcard .sum{font-size:15px;color:var(--ink-2);line-height:1.55}
+  .prow{display:grid;grid-template-columns:92px 1fr;gap:9px 12px;margin-top:20px;font-size:14px}
+  .prow .rk{color:var(--ink-3);font-weight:600}
+  .prow .rv{color:var(--ink-2);line-height:1.5}
+  .plink{margin-top:auto;padding-top:24px;display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px}
+  .pcard.rec .plink{color:var(--brand-ink)}
+  .pcard.alt .plink{color:var(--blue)}
+  .plink:hover{text-decoration:underline}
+
   /* ds note */
   .ds{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
   .chip{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 16px;font-size:14px}
@@ -144,11 +162,17 @@
 
   /* cta footer */
   .cta{background:var(--bg-2);border-top:1px solid var(--line)}
-  .links{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
+  .linkgroup{margin-top:34px;text-align:left}
+  .linkgroup .gh{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+  .links{display:grid;grid-template-columns:1fr;gap:14px}
   @media(min-width:760px){.links{grid-template-columns:repeat(2,1fr)}}
-  .lk{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:18px 20px;font-weight:600;transition:border-color .15s,background .15s}
-  .lk:hover{border-color:var(--brand);background:#fffef8}
-  .lk .arrow{color:var(--ink-3)}
+  .lk{display:flex;justify-content:space-between;align-items:center;gap:16px;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:17px 20px;transition:border-color .15s,background .15s,transform .15s,box-shadow .15s}
+  .lk:hover{border-color:var(--brand);background:#fffef8;transform:translateY(-1px);box-shadow:0 12px 26px -18px rgba(12,10,9,.45)}
+  .lk-main{display:flex;flex-direction:column;text-align:left}
+  .lk-t{font-weight:600;font-size:15.5px}
+  .lk-d{font-size:13px;color:var(--ink-3);margin-top:3px}
+  .lk .arrow{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--bg-3);color:var(--ink-2);display:grid;place-items:center;font-size:14px;transition:background .15s,color .15s}
+  .lk:hover .arrow{background:var(--brand);color:var(--ink)}
   footer{padding:56px 0 44px;border-top:1px solid var(--line);background:var(--bg-2);color:var(--ink-2)}
   .foot-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .foot-tag{font-size:13px;color:var(--ink-3)}
@@ -263,9 +287,12 @@
         <span class="tag ind">Individual experience &middot; the missing link</span>
         <h2>The missing link, built for the loop.</h2>
         <p class="lead">Until now this layer has been treated at a surface level, sketched in the PRDs and referred to in passing while the business suite got the depth. It is the missing link, and the flywheel does not turn without it. A standalone consumer product for individuals and small operators, separate from the business suite, on the proven Indeed model: a mobile-native app (iOS + Android) with a desktop companion that mirrors the exact same UI. It is where the networking and viral growth happen, so it leads on mobile, and it is the layer we most need to align on.</p>
+        <p style="margin-top:16px;font-size:16px;color:var(--ink-2);line-height:1.62">This is not a new idea bolted on. Most people looking for work today are already funneled into a mobile experience they are stuck with. The real opportunity is to upgrade it: modernize the mobile experience end-users are forced into, add the new features that align to where ToolBelt is going, and build a companion desktop app to match. The missing link is the overdue upgrade to the experience users already live in.</p>
         <ul class="feat ind">
           <li><span class="ic">&#9679;</span><span><b>Discover and apply, fast.</b> A recommended-work feed, one-tap review-and-send apply, tracking and withdraw.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Primary activation funnel.</b> This is where most users enter, carrying the main activation funnels with clear, direct routes into the business suite, so end-users are led straight to what they need in either experience.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Networking + viral loops.</b> Connections and referrals that grow the user base, the supply side of the marketplace.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Contact management.</b> A contact and roster-style layer for the individual, the same idea as the business Roster but pared down for a one-person "Chuck in a truck" operation.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Native-ready.</b> The mobile UI is the product the native iOS and Android apps are built on.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Desktop companion.</b> The web app mirrors the mobile experience, not a separate product.</span></li>
         </ul>
@@ -378,22 +405,35 @@
   </div>
 </section>
 
-<!-- DESIGN SYSTEM -->
-<section id="ds">
+<!-- TWO PATHS (the decision) -->
+<section id="paths">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Built, not just drawn</span>
-      <h2>A live prototype on one design system.</h2>
-      <p class="lead">Both experiences are built in code on the tb v3 design system (shadcn base + tokens). This is a working prototype that shares the proposed ideas in code, a proposal to align on direction rather than a final spec. The Figma files are one input, and the designs will evolve with the business team's requirements and work from other designers on the project.</p>
+    <div class="sec-head center" style="margin:0 auto">
+      <span class="eyebrow">The decision</span>
+      <h2>Two paths for the individual.</h2>
+      <p class="lead">Same destination: a mobile-forward individual experience that upgrades what job-seekers use today and feeds the marketplace. Two ways to build it. This is the call we are asking the team to make.</p>
     </div>
-    <div class="stack" style="margin-top:34px">
-      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/biz-abac.jpg" alt="ABAC permission matrix"></div>
-    </div>
-    <div class="ds">
-      <div class="chip"><b>Design system:</b> tb v3 (shadcn + tokens)</div>
-      <div class="chip"><b>Type:</b> Geist</div>
-      <div class="chip"><b>Brand:</b> ToolBelt yellow</div>
-      <div class="chip"><b>Prototype:</b> live on the web</div>
+    <div class="paths">
+      <div class="pcard rec">
+        <span class="ptag">Recommended</span>
+        <h3>A separate individual product</h3>
+        <p class="sum">Build the upgrade as its own standalone, mobile-native app (iOS + Android) with a desktop companion that mirrors it, on the proven Indeed model. Purpose-built for the consumer loop.</p>
+        <div class="prow">
+          <span class="rk">Best for</span><span class="rv">Maximum acquisition and viral growth, a true consumer-grade experience.</span>
+          <span class="rk">Trade-off</span><span class="rv">More to build: its own codebase and a native app pipeline.</span>
+        </div>
+        <a class="plink" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">See the individual prototype &#8599;</a>
+      </div>
+      <div class="pcard alt">
+        <span class="ptag">The former path</span>
+        <h3>Minify the business app</h3>
+        <p class="sum">Streamline the Next business app into a lighter, simplified experience for the individual user. Reuses the shell we are already building.</p>
+        <div class="prow">
+          <span class="rk">Best for</span><span class="rv">Fastest to stand up, one shell to maintain, less new engineering.</span>
+          <span class="rk">Trade-off</span><span class="rv">A consumer experience shaped by a business tool, harder to tune the growth loop.</span>
+        </div>
+        <a class="plink" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener">See the Next prototype &#8599;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -406,12 +446,20 @@
       <h2>See the whole thing.</h2>
       <p class="lead">The working prototype and three FigJam boards, from strategy to every screen and interaction.</p>
     </div>
-    <div class="links">
-      <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span>Individual experience prototype (+ reference business)</span><span class="arrow">&#8599;</span></a>
-      <a class="lk" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener"><span>Business Portal prototype &middot; the Next direction</span><span class="arrow">&#8599;</span></a>
-      <a class="lk" href="https://www.figma.com/board/agvFb5s2g27SVAXBpU4n3Z" target="_blank" rel="noopener"><span>Platform Map &middot; strategy + screens</span><span class="arrow">&#8599;</span></a>
-      <a class="lk" href="https://www.figma.com/board/BjmEbUF8HvvV3y4qwESkcB" target="_blank" rel="noopener"><span>User Flows &middot; web + mobile</span><span class="arrow">&#8599;</span></a>
-      <a class="lk" href="https://www.figma.com/board/ouaz6cnUkB7wauTlpbt8Tb" target="_blank" rel="noopener"><span>Journey Maps &middot; every screen + interaction</span><span class="arrow">&#8599;</span></a>
+    <div class="linkgroup">
+      <div class="gh">Prototypes</div>
+      <div class="links">
+        <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Individual experience prototype</span><span class="lk-d">Mobile-forward, plus the reference business suite</span></span><span class="arrow">&#8599;</span></a>
+        <a class="lk" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Next business Portal prototype</span><span class="lk-d">The emerging business direction</span></span><span class="arrow">&#8599;</span></a>
+      </div>
+    </div>
+    <div class="linkgroup">
+      <div class="gh">Boards</div>
+      <div class="links">
+        <a class="lk" href="https://www.figma.com/board/agvFb5s2g27SVAXBpU4n3Z" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Platform Map</span><span class="lk-d">Device strategy, real UI screenshots</span></span><span class="arrow">&#8599;</span></a>
+        <a class="lk" href="https://www.figma.com/board/BjmEbUF8HvvV3y4qwESkcB" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">User Flows</span><span class="lk-d">Web and mobile, both personas</span></span><span class="arrow">&#8599;</span></a>
+        <a class="lk" href="https://www.figma.com/board/ouaz6cnUkB7wauTlpbt8Tb" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Journey Maps</span><span class="lk-d">Every screen and interaction</span></span><span class="arrow">&#8599;</span></a>
+      </div>
     </div>
   </div>
 </section>
