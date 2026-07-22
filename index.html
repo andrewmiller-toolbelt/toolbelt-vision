@@ -149,7 +149,14 @@
   .lk{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:18px 20px;font-weight:600;transition:border-color .15s,background .15s}
   .lk:hover{border-color:var(--brand);background:#fffef8}
   .lk .arrow{color:var(--ink-3)}
-  footer{padding:40px 0;color:var(--ink-3);font-size:13.5px;text-align:center}
+  footer{padding:56px 0 44px;border-top:1px solid var(--line);background:var(--bg-2);color:var(--ink-2)}
+  .foot-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .foot-tag{font-size:13px;color:var(--ink-3)}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:26px;margin:28px 0}
+  @media(min-width:820px){.foot-grid{grid-template-columns:1.4fr 1fr 1.4fr;gap:40px}}
+  .foot-h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+  .foot-grid p{font-size:14px;color:var(--ink-2);line-height:1.6}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--ink-3)}
 
   /* content is visible by default; a gentle entrance is layered on only when JS + IntersectionObserver are available, so a stakeholder never sees a blank section */
   .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease}
@@ -407,7 +414,31 @@
   </div>
 </section>
 
-<footer>ToolBelt &middot; product vision &middot; internal proposal &middot; 2026</footer>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:22px;width:auto">
+      <span class="foot-tag">Product vision &middot; internal proposal</span>
+    </div>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-h">How this was made</div>
+        <p>Built in Claude Cowork mode. An AI agent orchestrated the design and code work end to end: a two-lane agent loop, one design lane on the Figma design system and one code lane on the prototype, matched the build to the Figma finals and the tb v3 design system, while Cowork planned the work, validated it on production, and assembled the artifacts.</p>
+      </div>
+      <div>
+        <div class="foot-h">By</div>
+        <p>Andrew Miller, design and product direction, with Claude (Cowork mode).</p>
+        <div class="foot-h" style="margin-top:18px">When</div>
+        <p>July 2026.</p>
+      </div>
+      <div>
+        <div class="foot-h">What's inside</div>
+        <p>A live individual + reference-business prototype, the Hardie business Portal prototype, three FigJam boards (Journey Maps, User Flows, Platform Map), and a proposal PRD. Design system: tb v3 (shadcn + tokens). Type: Geist. All of it a proposal, evolving with the business and product teams and other designers.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">ToolBelt &middot; a proposal to align on direction, not a finished spec &middot; 2026</div>
+  </div>
+</footer>
 
 <script>
   if('IntersectionObserver' in window){
