@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ToolBelt — Two experiences, one marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#FCCD0A; --brand-ink:#7a5c00;
+    --ink:#0c0a09; --ink-2:#44403c; --ink-3:#78716c;
+    --line:#e7e5e4; --line-2:#f0efed;
+    --bg:#ffffff; --bg-2:#faf9f7; --bg-3:#f5f4f2;
+    --blue:#2f5fd6; --blue-bg:#eef3ff;
+    --green:#12784a; --green-bg:#ecfdf5;
+    --r:18px; --maxw:1120px;
+    --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-0.011em}
+  h1,h2,h3{letter-spacing:-0.03em;line-height:1.08;margin:0;font-weight:700}
+  h2{font-size:clamp(28px,4vw,46px)}
+  h3{font-size:20px;letter-spacing:-0.02em;line-height:1.3}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3)}
+  .muted{color:var(--ink-2)}
+  .lead{font-size:clamp(18px,2.1vw,21px);color:var(--ink-2);line-height:1.6}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-0.02em}
+  .logo .mark{width:26px;height:26px;border-radius:8px;background:var(--brand);display:grid;place-items:center;color:var(--ink);font-weight:800;font-size:15px}
+  .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--ink-2)}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:11px;font-weight:600;font-size:14.5px;border:1px solid transparent;transition:transform .12s ease, background .15s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--brand);color:var(--ink)}
+  .btn-primary:hover{background:#ffd82e}
+  .btn-ghost{background:var(--bg);color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--bg-2)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-dots{position:absolute;inset:0;background:
+    radial-gradient(circle at 12% 20%, rgba(252,205,10,.5) 0 1.6px, transparent 2px),
+    radial-gradient(circle at 82% 30%, rgba(252,205,10,.38) 0 1.6px, transparent 2px),
+    radial-gradient(circle at 60% 70%, rgba(252,205,10,.32) 0 1.6px, transparent 2px),
+    radial-gradient(circle at 30% 82%, rgba(252,205,10,.3) 0 1.6px, transparent 2px);
+    background-size:120px 120px,90px 90px,140px 140px,80px 80px;opacity:.7;pointer-events:none}
+  .hero-in{position:relative;padding:96px 0 84px;text-align:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);font-size:13px;font-weight:600;color:var(--ink-2)}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+  h1{font-size:clamp(40px,7.2vw,76px);font-weight:800;margin:26px 0 0}
+  h1 .hl{background:linear-gradient(180deg,transparent 62%, rgba(252,205,10,.55) 62%)}
+  .hero p{max-width:640px;margin:22px auto 0}
+  .hero-cta{display:flex;gap:12px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+  .hero-meta{margin-top:30px;font-size:13.5px;color:var(--ink-3);display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+  .hero-meta b{color:var(--ink-2);font-weight:600}
+
+  section{padding:88px 0}
+  .sec-head{max-width:720px}
+  .sec-head h2{margin-top:12px}
+  .sec-head p{margin-top:16px}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+
+  /* model / venn */
+  .model{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .venn-wrap{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;margin-top:48px}
+  @media(min-width:900px){.venn-wrap{grid-template-columns:1fr 1fr;gap:56px}}
+  .venn{width:100%;max-width:520px;margin:0 auto;display:block}
+  .cols{display:grid;grid-template-columns:1fr;gap:16px}
+  .col{border:1px solid var(--line);background:var(--bg);border-radius:var(--r);padding:22px}
+  .col .k{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .col h3{margin:8px 0 6px}
+  .col p{font-size:15px;color:var(--ink-2)}
+  .col.ind .k{color:var(--brand-ink)}
+  .col.mkt{border-color:#cfe6d8;background:var(--green-bg)}
+  .col.mkt .k{color:var(--green)}
+  .col.biz .k{color:var(--blue)}
+
+  /* experience blocks */
+  .exp{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+  @media(min-width:960px){.exp{grid-template-columns:1fr 1fr;gap:64px}.exp.rev .copy{order:2}}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .tag.ind{background:rgba(252,205,10,.18);color:var(--brand-ink)}
+  .tag.biz{background:var(--blue-bg);color:var(--blue)}
+  .copy h2{margin:16px 0 0}
+  .copy .lead{margin-top:14px}
+  .feat{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+  .feat li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+  .feat .ic{flex:0 0 auto;width:22px;height:22px;border-radius:7px;background:var(--bg-3);display:grid;place-items:center;margin-top:1px}
+  .feat.ind .ic{background:rgba(252,205,10,.22)}
+  .feat.biz .ic{background:var(--blue-bg)}
+  .feat b{font-weight:600}
+  .feat span{color:var(--ink-2)}
+
+  /* device frames */
+  .phones{display:flex;gap:16px;justify-content:center;align-items:flex-end}
+  .phone{width:186px;flex:0 0 auto;border-radius:26px;border:8px solid #111114;background:#111114;box-shadow:0 24px 60px -24px rgba(12,10,9,.45);overflow:hidden}
+  .phone.small{width:150px;opacity:.94}
+  .phone img{display:block;width:100%;height:390px;object-fit:cover;object-position:top}
+  .phone.small img{height:330px}
+  .browser{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 24px 60px -30px rgba(12,10,9,.35)}
+  .browser .bar{height:38px;background:var(--bg-3);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 14px}
+  .browser .bar i{width:10px;height:10px;border-radius:50%;background:#d6d3d1;display:block}
+  .browser img{display:block;width:100%;height:auto}
+  .stack{display:grid;gap:18px}
+
+  /* platform strategy */
+  .strat{background:var(--ink);color:#fafaf9;border-radius:26px;padding:clamp(28px,4vw,52px)}
+  .strat .eyebrow{color:#a8a29e}
+  .strat h2{color:#fff}
+  .strat-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:36px}
+  @media(min-width:820px){.strat-grid{grid-template-columns:1fr 1fr;gap:24px}}
+  .scard{border:1px solid #2a2724;background:#171513;border-radius:var(--r);padding:26px}
+  .scard .k{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a8a29e}
+  .scard h3{color:#fff;margin:10px 0 8px}
+  .scard p{color:#d6d3d1;font-size:15px}
+  .scard .pill{display:inline-block;margin-top:16px;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px}
+  .scard.ind .pill{background:var(--brand);color:var(--ink)}
+  .scard.biz .pill{background:#2a2724;color:#fafaf9;border:1px solid #3a3633}
+
+  /* flywheel */
+  .fly{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
+  @media(min-width:820px){.fly{grid-template-columns:repeat(3,1fr)}}
+  .fcard{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--bg)}
+  .fcard .n{width:34px;height:34px;border-radius:10px;background:var(--brand);color:var(--ink);font-weight:800;display:grid;place-items:center}
+  .fcard h3{margin:16px 0 6px}
+  .fcard p{font-size:15px;color:var(--ink-2)}
+
+  /* ds note */
+  .ds{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .chip{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 16px;font-size:14px}
+  .chip b{font-weight:600}
+
+  /* cta footer */
+  .cta{background:var(--bg-2);border-top:1px solid var(--line)}
+  .links{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
+  @media(min-width:760px){.links{grid-template-columns:repeat(2,1fr)}}
+  .lk{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:18px 20px;font-weight:600;transition:border-color .15s,background .15s}
+  .lk:hover{border-color:var(--brand);background:#fffef8}
+  .lk .arrow{color:var(--ink-3)}
+  footer{padding:40px 0;color:var(--ink-3);font-size:13.5px;text-align:center}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><img src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:24px;width:auto;display:block"></a>
+    <div class="nav-links">
+      <a href="#model">The model</a>
+      <a href="#individual">Individual</a>
+      <a href="#business">Business</a>
+      <a href="#strategy">Platform</a>
+    </div>
+    <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">View the prototype</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-dots"></div>
+  <div class="wrap hero-in">
+    <span class="badge"><span class="dot"></span> Product vision &middot; internal proposal</span>
+    <h1>Two experiences.<br><span class="hl">One marketplace.</span></h1>
+    <p class="lead">Individuals and businesses want completely different things from ToolBelt. So we build two purpose-built products, and connect them where it matters: a two-sided marketplace where workers meet work.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">Explore the prototype</a>
+      <a class="btn btn-ghost" href="#model">See the model</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>Individual</b> &middot; mobile-forward, native</span>
+      <span><b>Business</b> &middot; desktop-first, responsive</span>
+      <span><b>Marketplace</b> &middot; the meeting point</span>
+    </div>
+    <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec. The prototype and Figma files are idea-sharing artifacts; final requirements and designs will evolve with the business team and other designers on the project.</p>
+  </div>
+</header>
+
+<!-- CORE BET -->
+<section style="padding:40px 0 0">
+  <div class="wrap">
+    <div style="border:1px solid var(--line);border-left:5px solid var(--brand);background:var(--bg-2);border-radius:16px;padding:26px 30px">
+      <div class="eyebrow" style="color:var(--brand-ink)">The core bet</div>
+      <p style="font-size:clamp(19px,2.5vw,27px);font-weight:600;letter-spacing:-0.02em;margin-top:10px;line-height:1.32">The streamlined individual experience, think <span class="hl">"Chuck in a truck,"</span> is a <b>separate product</b> from the business app suite. Keeping the two apart, and letting them meet only at the marketplace, is what makes this work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model" class="model">
+  <div class="wrap">
+    <div class="sec-head center" style="margin:0 auto">
+      <span class="eyebrow">The model</span>
+      <h2>Different needs. One place they meet.</h2>
+      <p class="lead">The two experiences do not mix. They connect only at the marketplace, a two-sided flywheel: businesses bring the jobs, and the streamlined individual experience, with its viral networking loops, brings more users.</p>
+    </div>
+
+    <div class="venn-wrap">
+      <svg class="venn" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram: Individual and Business experiences overlap at the Marketplace">
+        <circle cx="200" cy="180" r="150" fill="rgba(252,205,10,.30)" stroke="#e0aa04" stroke-width="2"/>
+        <circle cx="320" cy="180" r="150" fill="rgba(47,95,214,.20)" stroke="#2f5fd6" stroke-width="2"/>
+        <text x="128" y="150" text-anchor="middle" font-family="Geist,sans-serif" font-size="19" font-weight="700" fill="#7a5c00">Individual</text>
+        <text x="128" y="176" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">worker &middot;</text>
+        <text x="128" y="193" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">mobile-forward</text>
+        <text x="392" y="150" text-anchor="middle" font-family="Geist,sans-serif" font-size="19" font-weight="700" fill="#2f5fd6">Business</text>
+        <text x="392" y="176" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">org admin &middot;</text>
+        <text x="392" y="193" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">desktop-first</text>
+        <text x="260" y="172" text-anchor="middle" font-family="Geist,sans-serif" font-size="15" font-weight="700" fill="#0f6b45">Market&shy;place</text>
+        <text x="260" y="196" text-anchor="middle" font-family="Geist,sans-serif" font-size="11.5" fill="#0f6b45">workers &harr; jobs</text>
+      </svg>
+
+      <div class="cols">
+        <div class="col ind">
+          <div class="k">Individual</div>
+          <h3>Grow the user base</h3>
+          <p>Individuals and small one-operator companies. Networking and viral loops that pull in more users. Find work, apply, build a profile.</p>
+        </div>
+        <div class="col mkt">
+          <div class="k">Marketplace</div>
+          <h3>Where they meet (they don't mix)</h3>
+          <p>Jobs flow in from the business side. Users flow in from the individual viral loop. Applications route into the business's Roster. More users attract more businesses, more jobs attract more users.</p>
+        </div>
+        <div class="col biz">
+          <div class="k">Business</div>
+          <h3>Vet and hire</h3>
+          <p>Businesses and org admins. CRM-style vetting of contacts in the Roster, labor requests, org, members and permissions, and hiring.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDIVIDUAL -->
+<section id="individual">
+  <div class="wrap">
+    <div class="exp">
+      <div class="copy">
+        <span class="tag ind">Individual experience</span>
+        <h2>Mobile-forward. Built for the loop.</h2>
+        <p class="lead">A streamlined marketplace for individuals and small operators. This is where the networking and viral growth happen, so it is designed mobile-first and destined for native app builds. The desktop web app is a companion that mirrors the exact same UI.</p>
+        <ul class="feat ind">
+          <li><span class="ic">&#9679;</span><span><b>Discover and apply, fast.</b> A recommended-work feed, one-tap review-and-send apply, tracking and withdraw.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Networking + viral loops.</b> Connections and referrals that grow the user base, the supply side of the marketplace.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Native-ready.</b> The mobile UI is the product the native iOS and Android apps are built on.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Desktop companion.</b> The web app mirrors the mobile experience, not a separate product.</span></li>
+        </ul>
+      </div>
+      <div class="phones">
+        <div class="phone small"><img src="vision-assets/ind-notif-mobile.jpg" alt="Individual notifications on mobile"></div>
+        <div class="phone"><img src="vision-assets/ind-home-mobile.jpg" alt="Individual recommendations home on mobile"></div>
+        <div class="phone small"><img src="vision-assets/ind-applied-mobile.jpg" alt="Applied job detail on mobile"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section id="business" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="exp rev">
+      <div class="copy">
+        <span class="tag biz">Business suite</span>
+        <h2>Desktop-first. A CRM for the trades.</h2>
+        <p class="lead">A full business suite for org admins: post labor requests, manage the organization with granular permissions, and vet contacts CRM-style in the Roster. Desktop-optimized for the deep work, responsive so a mobile user can still log in and get things done.</p>
+        <ul class="feat biz">
+          <li><span class="ic">&#9679;</span><span><b>Roster, CRM-style.</b> Vet, tag, and track contacts and qualifications, the demand side's hiring pipeline.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Labor requests.</b> A guided create flow with templates, then a rich request detail that posts to the marketplace.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Org, members, permissions.</b> Scoped, ABAC-style access per resource, built for real teams.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Responsive.</b> The full suite reflows to mobile so work does not stop when you leave your desk.</span></li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/biz-members.jpg" alt="Org Admin members table"></div>
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/biz-request.jpg" alt="Labor request detail"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="strat">
+      <span class="eyebrow">Platform strategy</span>
+      <h2>One design system, two device postures.</h2>
+      <div class="strat-grid">
+        <div class="scard ind">
+          <div class="k">Individual</div>
+          <h3>Mobile-forward, native-destined</h3>
+          <p>The phone is the primary product. Native iOS and Android builds carry the networking and viral loop. The desktop web app mirrors the exact mobile-forward UI.</p>
+          <span class="pill">Primary: phone &middot; Desktop: mirror</span>
+        </div>
+        <div class="scard biz">
+          <div class="k">Business</div>
+          <h3>Desktop-first, responsive</h3>
+          <p>The desktop is the primary work surface for org admin, labor requests, and roster. It is responsive so a mobile user can log in and handle the essentials.</p>
+          <span class="pill">Primary: desktop &middot; Mobile: responsive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLYWHEEL -->
+<section style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The flywheel</span>
+      <h2>The marketplace compounds.</h2>
+      <p class="lead">Each side feeds the other. The streamlined individual experience is the acquisition engine for the supply side; the business suite creates the demand.</p>
+    </div>
+    <div class="fly">
+      <div class="fcard"><div class="n">1</div><h3>Individuals bring users</h3><p>Viral networking loops on a mobile-forward experience grow the worker base, the supply.</p></div>
+      <div class="fcard"><div class="n">2</div><h3>Businesses bring jobs</h3><p>Org admins post labor requests, creating the demand that makes the marketplace worth showing up for.</p></div>
+      <div class="fcard"><div class="n">3</div><h3>The loop closes</h3><p>Applications route into the Roster; more users attract more businesses, more jobs attract more users.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SYSTEM -->
+<section id="ds">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Built, not just drawn</span>
+      <h2>A live prototype on one design system.</h2>
+      <p class="lead">Both experiences are built in code on the tb v3 design system (shadcn base + tokens). This is a working prototype that shares the proposed ideas in code, a proposal to align on direction rather than a final spec. The Figma files are one input, and the designs will evolve with the business team's requirements and work from other designers on the project.</p>
+    </div>
+    <div class="stack" style="margin-top:34px">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/biz-abac.jpg" alt="ABAC permission matrix"></div>
+    </div>
+    <div class="ds">
+      <div class="chip"><b>Design system:</b> tb v3 (shadcn + tokens)</div>
+      <div class="chip"><b>Type:</b> Geist</div>
+      <div class="chip"><b>Brand:</b> ToolBelt yellow</div>
+      <div class="chip"><b>Prototype:</b> live on the web</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLEL BUSINESS PROPOSAL -->
+<section id="portal" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--blue)">The emerging business direction</span>
+      <h2>The next-gen business Portal.</h2>
+      <p class="lead">The business side of the ecosystem is heading toward a more advanced Portal (an emerging direction prototyped by Rob, with the business and product teams, against new requirements): an auto-matching engine that auto-pairs candidates to open posts, a geographic view of jobs and pros, and a matches pipeline. Shown here for direction, an active proposal, not a finished spec. Whatever the business surface becomes, the individual "Chuck in a truck" experience stays a separate product.</p>
+    </div>
+    <div class="stack" style="margin-top:34px">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-matches.jpg" alt="Business Portal matches / labor requests"></div>
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-roster.jpg" alt="Business Portal roster"></div>
+      </div>
+    </div>
+    <div style="margin-top:26px"><a class="btn btn-primary" href="https://toolbelt-hardie.vercel.app/" target="_blank" rel="noopener">Open the Business Portal prototype &#8599;</a></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="sec-head center" style="margin:0 auto">
+      <span class="eyebrow">Explore it yourself</span>
+      <h2>See the whole thing.</h2>
+      <p class="lead">The working prototype and three FigJam boards, from strategy to every screen and interaction.</p>
+    </div>
+    <div class="links">
+      <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span>Live prototype (both experiences)</span><span class="arrow">&#8599;</span></a>
+      <a class="lk" href="https://www.figma.com/board/agvFb5s2g27SVAXBpU4n3Z" target="_blank" rel="noopener"><span>Platform Map &middot; strategy + screens</span><span class="arrow">&#8599;</span></a>
+      <a class="lk" href="https://www.figma.com/board/BjmEbUF8HvvV3y4qwESkcB" target="_blank" rel="noopener"><span>User Flows &middot; web + mobile</span><span class="arrow">&#8599;</span></a>
+      <a class="lk" href="https://www.figma.com/board/ouaz6cnUkB7wauTlpbt8Tb" target="_blank" rel="noopener"><span>Journey Maps &middot; every screen + interaction</span><span class="arrow">&#8599;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>ToolBelt &middot; product vision &middot; internal proposal &middot; 2026</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('section .wrap > *, .exp').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
+</script>
+</body>
+</html>
