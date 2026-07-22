@@ -172,8 +172,8 @@
     <div class="nav-links">
       <a href="#model">The model</a>
       <a href="#individual">Individual</a>
-      <a href="#business">Business</a>
-      <a href="#portal">Portal</a>
+      <a href="#portal">Business</a>
+      <a href="#business">Capabilities</a>
       <a href="#strategy">Platform</a>
     </div>
     <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">View the prototype</a>
@@ -220,8 +220,10 @@
 
     <div class="venn-wrap">
       <svg class="venn" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram: Individual and Business experiences overlap at the Marketplace">
+        <defs><clipPath id="vennLens"><circle cx="200" cy="180" r="150"/></clipPath></defs>
         <circle cx="200" cy="180" r="150" fill="rgba(252,205,10,.30)" stroke="#e0aa04" stroke-width="2"/>
         <circle cx="320" cy="180" r="150" fill="rgba(47,95,214,.20)" stroke="#2f5fd6" stroke-width="2"/>
+        <circle cx="320" cy="180" r="150" fill="rgba(22,163,74,.45)" clip-path="url(#vennLens)"/>
         <text x="128" y="150" text-anchor="middle" font-family="Geist,sans-serif" font-size="19" font-weight="700" fill="#7a5c00">Individual</text>
         <text x="128" y="176" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">worker &middot;</text>
         <text x="128" y="193" text-anchor="middle" font-family="Geist,sans-serif" font-size="12.5" fill="#44403c">mobile-forward</text>
@@ -294,14 +296,33 @@
   </div>
 </section>
 
-<!-- BUSINESS -->
-<section id="business" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- BUSINESS DIRECTION (DECIDED): Hardie, primary -->
+<section id="portal" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--blue)">The business direction (decided)</span>
+      <h2>The Hardie Portal is the business shell.</h2>
+      <p class="lead">This is the new primary direction for the business apps. We accept the Hardie Portal (prototyped by Rob, with the business and product teams) as the shell and chrome, and integrate the qualified items from our PRDs plus the UI and micro-interactions we need from Figma into it, not the Figma shell. It brings an auto-matching engine that auto-pairs candidates to open posts, a geographic view of jobs and pros, and a matches pipeline. The individual "Chuck in a truck" experience stays a separate product.</p>
+    </div>
+    <div class="stack" style="margin-top:34px">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-matches.jpg" alt="Business Portal matches / labor requests"></div>
+        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-roster.jpg" alt="Business Portal roster"></div>
+      </div>
+    </div>
+    <div style="margin-top:26px"><a class="btn btn-primary" href="https://toolbelt-hardie.vercel.app/" target="_blank" rel="noopener">Open the Business Portal prototype &#8599;</a></div>
+  </div>
+</section>
+
+<!-- BUSINESS CAPABILITIES (qualified): folds into the Portal above -->
+<section id="business">
   <div class="wrap">
     <div class="exp rev">
       <div class="copy">
         <span class="tag biz">Business capabilities &middot; qualified</span>
         <h2>The proven suite, folding into the Portal.</h2>
-        <p class="lead">The business side is going the Hardie Portal route (next section). These qualified capabilities from our work, Labor Requests, a CRM-style Roster for vetting contacts, and granular org permissions, get integrated into that Portal shell, along with the specific Figma UI and micro-interactions we need. Desktop-first, responsive for the essentials on mobile.</p>
+        <p class="lead">These qualified capabilities from our work fold into the Hardie Portal shown above. Labor Requests, a CRM-style Roster for vetting contacts, and granular org permissions get integrated into that Portal shell, along with the specific Figma UI and micro-interactions we need. Desktop-first, responsive for the essentials on mobile.</p>
         <ul class="feat biz">
           <li><span class="ic">&#9679;</span><span><b>Roster, CRM-style.</b> Vet, tag, and track contacts and qualifications, the demand side's hiring pipeline.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Labor requests.</b> A guided create flow with templates, then a rich request detail that posts to the marketplace.</span></li>
@@ -374,25 +395,6 @@
       <div class="chip"><b>Brand:</b> ToolBelt yellow</div>
       <div class="chip"><b>Prototype:</b> live on the web</div>
     </div>
-  </div>
-</section>
-
-<!-- PARALLEL BUSINESS PROPOSAL -->
-<section id="portal" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" style="color:var(--blue)">The business direction (decided)</span>
-      <h2>The Hardie Portal is the business shell.</h2>
-      <p class="lead">The business side is going this route. We accept the Hardie Portal (prototyped by Rob, with the business and product teams) as the shell and chrome, and integrate the qualified items from our PRDs plus the UI and micro-interactions we need from Figma into it, not the Figma shell. It brings an auto-matching engine that auto-pairs candidates to open posts, a geographic view of jobs and pros, and a matches pipeline. The individual "Chuck in a truck" experience stays a separate product.</p>
-    </div>
-    <div class="stack" style="margin-top:34px">
-      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
-        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-matches.jpg" alt="Business Portal matches / labor requests"></div>
-        <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-roster.jpg" alt="Business Portal roster"></div>
-      </div>
-    </div>
-    <div style="margin-top:26px"><a class="btn btn-primary" href="https://toolbelt-hardie.vercel.app/" target="_blank" rel="noopener">Open the Business Portal prototype &#8599;</a></div>
   </div>
 </section>
 
