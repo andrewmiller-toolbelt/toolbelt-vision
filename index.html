@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ToolBelt — Two experiences, one marketplace</title>
+<link rel="icon" href="vision-assets/toolbelt-logo-light.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -150,8 +151,10 @@
   .lk .arrow{color:var(--ink-3)}
   footer{padding:40px 0;color:var(--ink-3);font-size:13.5px;text-align:center}
 
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
+  /* content is visible by default; a gentle entrance is layered on only when JS + IntersectionObserver are available, so a stakeholder never sees a blank section */
+  .reveal{opacity:1;transform:none;transition:opacity .5s ease, transform .5s ease}
+  .js-reveal .reveal{opacity:0;transform:translateY(12px)}
+  .js-reveal .reveal.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -163,6 +166,7 @@
       <a href="#model">The model</a>
       <a href="#individual">Individual</a>
       <a href="#business">Business</a>
+      <a href="#portal">Portal</a>
       <a href="#strategy">Platform</a>
     </div>
     <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">View the prototype</a>
@@ -394,7 +398,8 @@
       <p class="lead">The working prototype and three FigJam boards, from strategy to every screen and interaction.</p>
     </div>
     <div class="links">
-      <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span>Live prototype (both experiences)</span><span class="arrow">&#8599;</span></a>
+      <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span>Individual experience prototype (+ reference business)</span><span class="arrow">&#8599;</span></a>
+      <a class="lk" href="https://toolbelt-hardie.vercel.app/" target="_blank" rel="noopener"><span>Business Portal prototype &middot; the Hardie direction</span><span class="arrow">&#8599;</span></a>
       <a class="lk" href="https://www.figma.com/board/agvFb5s2g27SVAXBpU4n3Z" target="_blank" rel="noopener"><span>Platform Map &middot; strategy + screens</span><span class="arrow">&#8599;</span></a>
       <a class="lk" href="https://www.figma.com/board/BjmEbUF8HvvV3y4qwESkcB" target="_blank" rel="noopener"><span>User Flows &middot; web + mobile</span><span class="arrow">&#8599;</span></a>
       <a class="lk" href="https://www.figma.com/board/ouaz6cnUkB7wauTlpbt8Tb" target="_blank" rel="noopener"><span>Journey Maps &middot; every screen + interaction</span><span class="arrow">&#8599;</span></a>
@@ -405,8 +410,11 @@
 <footer>ToolBelt &middot; product vision &middot; internal proposal &middot; 2026</footer>
 
 <script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('section .wrap > *, .exp').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=(i%3*60)+'ms';io.observe(el)});
+  if('IntersectionObserver' in window){
+    document.documentElement.classList.add('js-reveal');
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px 300px 0px',threshold:0});
+    document.querySelectorAll('section .wrap > *, .exp').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=(i%3*50)+'ms';io.observe(el)});
+  }
 </script>
 </body>
 </html>
