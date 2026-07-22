@@ -43,7 +43,7 @@
   .nav-links a:hover{color:var(--ink)}
   .btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:11px;font-weight:600;font-size:14.5px;border:1px solid transparent;transition:transform .12s ease, background .15s ease}
   .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--brand);color:var(--ink)}
+  .btn-primary{background:var(--brand);color:#0c0a09}
   .btn-primary:hover{background:#ffd82e}
   .btn-ghost{background:var(--bg);color:var(--ink);border-color:var(--line)}
   .btn-ghost:hover{background:var(--bg-2)}
@@ -133,14 +133,14 @@
   .scard h3{color:#fff;margin:10px 0 8px}
   .scard p{color:#d6d3d1;font-size:15px}
   .scard .pill{display:inline-block;margin-top:16px;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px}
-  .scard.ind .pill{background:var(--brand);color:var(--ink)}
+  .scard.ind .pill{background:var(--brand);color:#0c0a09}
   .scard.biz .pill{background:#2a2724;color:#fafaf9;border:1px solid #3a3633}
 
   /* flywheel */
   .fly{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
   @media(min-width:820px){.fly{grid-template-columns:repeat(3,1fr)}}
   .fcard{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--bg)}
-  .fcard .n{width:34px;height:34px;border-radius:10px;background:var(--brand);color:var(--ink);font-weight:800;display:grid;place-items:center}
+  .fcard .n{width:34px;height:34px;border-radius:10px;background:var(--brand);color:#0c0a09;font-weight:800;display:grid;place-items:center}
   .fcard h3{margin:16px 0 6px}
   .fcard p{font-size:15px;color:var(--ink-2)}
 
@@ -150,7 +150,7 @@
   .pcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--bg);border-radius:var(--r);padding:30px}
   .pcard.rec{border-color:#efd24d;box-shadow:0 0 0 3px rgba(252,205,10,.16)}
   .ptag{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
-  .pcard.rec .ptag{background:var(--brand);color:var(--ink)}
+  .pcard.rec .ptag{background:var(--brand);color:#0c0a09}
   .pcard.alt .ptag{background:var(--bg-3);color:var(--ink-2);border:1px solid var(--line)}
   .pcard h3{margin:16px 0 8px;font-size:22px}
   .pcard .sum{font-size:15px;color:var(--ink-2);line-height:1.55}
@@ -179,7 +179,7 @@
   .lk-t{font-weight:600;font-size:15.5px}
   .lk-d{font-size:13px;color:var(--ink-3);margin-top:3px}
   .lk .arrow{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--bg-3);color:var(--ink-2);display:grid;place-items:center;font-size:14px;transition:background .15s,color .15s}
-  .lk:hover .arrow{background:var(--brand);color:var(--ink)}
+  .lk:hover .arrow{background:var(--brand);color:#0c0a09}
   footer{padding:56px 0 44px;border-top:1px solid var(--line);background:var(--bg-2);color:var(--ink-2)}
   .foot-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .foot-tag{font-size:13px;color:var(--ink-3)}
@@ -254,7 +254,8 @@
   .fnode.alt{border-style:dashed;color:var(--ink-2);font-weight:500}
   .fpipe{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
   .fstep{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:600;white-space:nowrap}
-  .fstep.fhi{background:var(--brand);color:var(--ink);border-color:transparent}
+  .fstep.fhi{background:var(--brand);color:#0c0a09;border-color:transparent}
+  .feat.lead-feat .ic{color:#0c0a09}
   .fconn{position:relative;width:32px;height:3px;border-radius:2px;background:var(--line);overflow:hidden;flex:0 0 auto}
   .fconn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--brand),transparent);transform:translateX(-120%);animation:fflow 2.1s linear infinite}
   @keyframes fflow{to{transform:translateX(120%)}}
@@ -332,7 +333,7 @@
     </div>
     <div class="hero-meta">
       <span><b>Individual</b> &middot; public + social</span>
-      <span><b>Business</b> &middot; private + paid</span>
+      <span><b>Business</b> &middot; enterprise ERP + paid</span>
       <span><b>Marketplace</b> &middot; where they meet</span>
     </div>
     <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec. The prototypes and Figma files are idea-sharing artifacts; requirements evolve with the business and product teams and other designers.</p>
@@ -355,7 +356,7 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The model</span>
       <h2>Different needs. One place they meet.</h2>
-      <p class="lead">The two experiences do not mix. A public, social individual app grows the user base; the business suite posts the work; they meet at the marketplace.</p>
+      <p class="lead">The two experiences do not mix. A public, social individual app grows the user base; an enterprise ERP business suite posts and fills the work; they meet at the marketplace.</p>
     </div>
 
     <div class="venn-wrap">
@@ -387,8 +388,8 @@
         </div>
         <div class="col biz">
           <div class="k">Business</div>
-          <h3>Private + paid</h3>
-          <p>CRM-style vetting, labor requests, org and permissions. A gated upgrade.</p>
+          <h3>Enterprise ERP</h3>
+          <p>A full ERP suite for the trades: CRM-style vetting plus forecasting and gap analysis. A gated, paid upgrade.</p>
         </div>
       </div>
     </div>
@@ -487,7 +488,7 @@
     <div class="sec-head">
       <span class="eyebrow" style="color:var(--blue)">The business direction &middot; emerging</span>
       <h2>The Next prototype is the emerging shell.</h2>
-      <p class="lead">The business side is heading to the Next prototype as its shell: auto-matching, a map of jobs and pros, and a matches pipeline. We fold our qualified PRD items and the Figma UI we need into it, not the Figma shell. It is the private, paid counterpart to the individual app.</p>
+      <p class="lead">The business side is a full enterprise ERP suite for the trades, similar to a CRM but with new vetting-style functionality and forecasting / gap analysis. It is heading to the Next prototype as its shell: auto-matching, a map of jobs and pros, and a matches pipeline. We fold our qualified PRD items and the Figma UI we need into it, not the Figma shell. It is the private, paid counterpart to the public individual app.</p>
     </div>
     <div class="stack" style="margin-top:34px">
       <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
