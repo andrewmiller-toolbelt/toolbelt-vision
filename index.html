@@ -150,6 +150,8 @@
   .fcard .n{width:34px;height:34px;border-radius:10px;background:var(--brand);color:#0c0a09;font-weight:800;display:grid;place-items:center}
   .fcard h3{margin:16px 0 6px}
   .fcard p{font-size:15px;color:var(--ink-2)}
+  .fly-logic{max-width:780px;margin:28px auto 0;text-align:center;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+  .fly-logic b{color:var(--brand-ink)}
 
   /* two paths (the decision) */
   .paths{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
@@ -168,6 +170,18 @@
   .pcard.rec .plink{color:var(--brand-ink)}
   .pcard.alt .plink{color:var(--blue)}
   .plink:hover{text-decoration:underline}
+  /* two-paths pros/cons decision lists */
+  .ppros,.pcons{margin-top:16px}
+  .pll{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+  .ppros .pll{color:var(--green)}
+  .pcard .ppros ul,.pcard .pcons ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .pcard .ppros li,.pcard .pcons li{position:relative;padding-left:22px;font-size:14px;line-height:1.45}
+  .pcard .ppros li{color:var(--ink-2)}
+  .pcard .ppros li::before{content:"\2713";position:absolute;left:1px;top:0;color:var(--green);font-weight:700}
+  .pcard .pcons li{color:var(--ink-3)}
+  .pcard .pcons li::before{content:"\2013";position:absolute;left:3px;top:0;color:var(--ink-3);font-weight:700}
+  .paths-note{max-width:760px;margin:28px auto 0;text-align:center;font-size:16px;font-weight:600;color:var(--ink)}
+  .paths-note b{color:var(--brand-ink)}
 
   /* ds note */
   .ds{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
@@ -333,7 +347,7 @@
   <div class="wrap hero-in">
     <span class="badge"><span class="dot"></span> Product vision &middot; internal proposal</span>
     <h1>Two experiences.<br><span class="hl">One marketplace.</span></h1>
-    <p class="lead">Workers and businesses need different things, so we build two products and connect them at one marketplace. The individual side is the <span class="hl">missing link</span>: a <span class="hl">social app for the trades</span> that grows the whole network.</p>
+    <p class="lead">Workers and businesses want different things. So: two products, one marketplace. The individual side is the <span class="hl">missing link</span> this proposal is about.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">Explore the prototype</a>
       <a class="btn btn-ghost" href="#model">See the model</a>
@@ -343,7 +357,7 @@
       <span><b>Business</b> &middot; enterprise ERP + paid</span>
       <span><b>Marketplace</b> &middot; where they meet</span>
     </div>
-    <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec. The prototypes and Figma files are idea-sharing artifacts; requirements evolve with the business and product teams and other designers.</p>
+    <p style="margin:24px auto 0;max-width:640px;font-size:13.5px;color:var(--ink-3)">A proposal to align on direction, not a finished spec.</p>
   </div>
 </header>
 
@@ -352,7 +366,7 @@
   <div class="wrap">
     <div style="border:1px solid var(--line);border-left:5px solid var(--brand);background:var(--bg-2);border-radius:16px;padding:26px 30px">
       <div class="eyebrow" style="color:var(--brand-ink)">The core bet</div>
-      <p style="font-size:clamp(19px,2.5vw,27px);font-weight:600;letter-spacing:-0.02em;margin-top:10px;line-height:1.32">The individual experience, <span class="hl">"Chuck in a truck,"</span> is a separate, <b>public app</b>. Keep it apart from the business suite and let them meet only at the marketplace. That separation, and the viral growth it unlocks, is what makes this work. It is also the piece treated most lightly so far, and the <span class="hl">missing link</span> we most need to align on.</p>
+      <p style="font-size:clamp(19px,2.5vw,27px);font-weight:600;letter-spacing:-0.02em;margin-top:10px;line-height:1.32">The individual app (<span class="hl">"Chuck in a truck"</span>) is public and social. Keep it separate from the business suite; let them meet only at the marketplace. That separation, and the viral growth it unlocks, is what makes this work, and it is the piece we have under-invested in.</p>
     </div>
   </div>
 </section>
@@ -363,7 +377,7 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The model</span>
       <h2>Different needs. One place they meet.</h2>
-      <p class="lead">The two experiences do not mix. A public, social individual app grows the user base; an enterprise ERP business suite posts and fills the work; they meet at the marketplace.</p>
+      <p class="lead">The two experiences do not mix. A public, social app grows the user base; an enterprise ERP suite fills the work; they meet at the marketplace.</p>
     </div>
 
     <div class="venn-wrap">
@@ -386,17 +400,17 @@
         <div class="col ind">
           <div class="k">Individual</div>
           <h3>Public + social</h3>
-          <p>Free and public-facing. Activation funnels bring people in; viral loops grow the base.</p>
+          <p>Free and public-facing. Funnels bring people in; viral loops grow the base.</p>
         </div>
         <div class="col mkt">
           <div class="k">Marketplace</div>
           <h3>Where they meet</h3>
-          <p>Jobs from the business side, users from the individual loop. They connect here, they do not mix.</p>
+          <p>Jobs from business, users from the individual loop. They connect, they do not mix.</p>
         </div>
         <div class="col biz">
           <div class="k">Business</div>
           <h3>Enterprise ERP</h3>
-          <p>A full ERP suite for the trades: CRM-style vetting plus forecasting and gap analysis. A gated, paid upgrade.</p>
+          <p>A full ERP suite: CRM-style vetting, forecasting, gap analysis. A gated, paid upgrade.</p>
         </div>
       </div>
     </div>
@@ -410,11 +424,11 @@
       <div class="copy">
         <span class="tag ind">Individual &middot; the missing link</span>
         <h2>A social app for the trades.</h2>
-        <p class="lead">This is the public face of ToolBelt and the missing link the flywheel needs. It is the overdue upgrade to the mobile experience workers are already forced into: a social app that runs on activation funnels and viral loops. Mobile-first, with a desktop companion that mirrors it.</p>
+        <p class="lead">The public face of ToolBelt, and the missing link the flywheel needs. It is the overdue upgrade to the mobile experience workers are already stuck with. Mobile-first, with a desktop companion that mirrors it.</p>
         <ul class="feat ind lead-feat">
-          <li><span class="ic">&#9679;</span><span><b>Social by design.</b> Connect, share work, refer, and invite. Users bring users.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Many ways in.</b> Web, invite links, QR and SMS funnels feed one fast path to first save and first apply.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Viral loops drive growth.</b> Every user can pull in the next. This is the supply engine for the marketplace.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Social by design.</b> Connect, share, refer, invite. Users bring users.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Many ways in.</b> Web, invite links, QR and SMS funnels feed one fast path to first apply.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Viral loops = growth.</b> Every user pulls in the next. The supply engine.</span></li>
         </ul>
         <ul class="feat ind">
           <li><span class="ic">&#9679;</span><span><b>Discover and apply fast.</b> Recommended feed, one-tap apply, track and withdraw.</span></li>
@@ -478,12 +492,12 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">The proven model</span>
       <h2>This is the Indeed model.</h2>
-      <p class="lead">We are not inventing this. Indeed runs a mobile-first job-seeker app and a separate employer dashboard, connected by matching. We are adopting the pattern that already works at scale for labor.</p>
+      <p class="lead">We are not inventing this. Indeed runs a mobile-first job-seeker app and a separate employer dashboard, connected by matching. We are adopting a pattern that already works at scale.</p>
     </div>
     <div class="fly" style="margin-top:40px">
       <div class="fcard"><h3>Two separate products</h3><p>A job-seeker app and a separate employer dashboard, connected by matching.</p></div>
-      <div class="fcard"><h3>Mobile-first</h3><p>Native iOS and Android, 100M+ installs, apply-from-your-phone as a first-class flow.</p></div>
-      <div class="fcard"><h3>The market is mobile</h3><p>Roughly two in three job applications are submitted on mobile.</p></div>
+      <div class="fcard"><h3>Mobile-first</h3><p>Native iOS and Android, 100M+ installs, apply-from-your-phone first-class.</p></div>
+      <div class="fcard"><h3>The market is mobile</h3><p>Roughly two in three applications are submitted on mobile.</p></div>
     </div>
     <p style="margin-top:22px;font-size:13px;color:var(--ink-3)">Sources: Indeed matching + hiring platform, Indeed Employer Dashboard, Indeed mobile app and App Store listing, Appcast mobile-vs-desktop job-search trends.</p>
   </div>
@@ -495,7 +509,7 @@
     <div class="sec-head">
       <span class="eyebrow" style="color:var(--blue)">The business direction &middot; emerging</span>
       <h2>The Next prototype is the emerging shell.</h2>
-      <p class="lead">The business side is a full enterprise ERP suite for the trades, similar to a CRM but with new vetting-style functionality and forecasting / gap analysis. It is heading to the Next prototype as its shell: auto-matching, a map of jobs and pros, and a matches pipeline. We fold our qualified PRD items and the Figma UI we need into it, not the Figma shell. It is the private, paid counterpart to the public individual app.</p>
+      <p class="lead">A full enterprise ERP suite for the trades, CRM-like with new vetting plus forecasting and gap analysis. It is heading to the Next prototype as its shell: auto-matching, a map of jobs and pros, and a matches pipeline. The private, paid counterpart to the public app.</p>
     </div>
     <div class="stack" style="margin-top:34px">
       <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="vision-assets/portal-overview.jpg" alt="Business Portal overview with auto-matching and map"></div>
@@ -515,11 +529,12 @@
       <div class="copy">
         <span class="tag biz">Business capabilities &middot; qualified</span>
         <h2>The proven suite, folding in.</h2>
-        <p class="lead">These qualified capabilities fold into the Next shell: a CRM-style Roster for vetting, labor requests, and granular org permissions. Desktop-first, responsive on mobile.</p>
+        <p class="lead">These fold into the Next shell.</p>
         <ul class="feat biz">
           <li><span class="ic">&#9679;</span><span><b>Roster, CRM-style.</b> Vet, tag, and track contacts and qualifications.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Labor requests.</b> Guided create with templates, then a rich detail that posts to the marketplace.</span></li>
-          <li><span class="ic">&#9679;</span><span><b>Org and permissions.</b> Scoped, ABAC-style access, built for real teams.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Org and permissions.</b> Scoped, ABAC-style access for real teams.</span></li>
+          <li><span class="ic">&#9679;</span><span><b>Forecasting and gap analysis.</b> See coverage gaps and plan ahead.</span></li>
           <li><span class="ic">&#9679;</span><span><b>Responsive.</b> The full suite reflows to mobile.</span></li>
         </ul>
       </div>
@@ -547,7 +562,7 @@
         <div class="scard biz">
           <div class="k">Business</div>
           <h3>Desktop-first, responsive</h3>
-          <p>The desktop is the work surface; mobile handles the essentials.</p>
+          <p>The desktop is the work surface; mobile handles essentials.</p>
           <span class="pill">Primary: desktop &middot; Mobile: responsive</span>
         </div>
       </div>
@@ -561,13 +576,14 @@
     <div class="sec-head">
       <span class="eyebrow">The flywheel</span>
       <h2>The marketplace compounds.</h2>
-      <p class="lead">The public app acquires users through viral loops; the business side posts the work. Each side feeds the other.</p>
+      <p class="lead">The public app acquires users through viral loops; the ERP suite posts the work. Each side feeds the other.</p>
     </div>
     <div class="fly">
       <div class="fcard"><div class="n">1</div><h3>Users bring users</h3><p>Viral loops on a social, mobile-first app grow the worker base.</p></div>
-      <div class="fcard"><div class="n">2</div><h3>Businesses bring jobs</h3><p>The business side posts labor requests, the demand.</p></div>
-      <div class="fcard"><div class="n">3</div><h3>The loop closes</h3><p>Applications route into the Roster; users upgrade to the paid business app when they need it.</p></div>
+      <div class="fcard"><div class="n">2</div><h3>Businesses bring jobs</h3><p>The ERP suite posts the work, the demand.</p></div>
+      <div class="fcard"><div class="n">3</div><h3>The loop closes</h3><p>Apps route into the Roster; users upgrade to the paid suite when they need it.</p></div>
     </div>
+    <p class="fly-logic">The logic: viral loops acquire users cheaply, that supply makes the marketplace valuable, and businesses upgrade to the paid ERP suite to hire from it. <b>Individual-first is what makes the flywheel spin.</b></p>
   </div>
 </section>
 
@@ -617,24 +633,50 @@
       <div class="pcard rec">
         <span class="ptag">Recommended</span>
         <h3>A separate individual product</h3>
-        <p class="sum">Build it as its own mobile-first app with a desktop companion, on the Indeed model.</p>
-        <div class="prow">
-          <span class="rk">Best for</span><span class="rv">Growth, viral loops, a true consumer feel.</span>
-          <span class="rk">Trade-off</span><span class="rv">More to build, its own codebase and native pipeline.</span>
+        <p class="sum">Its own mobile-first app + desktop companion, on the Indeed model.</p>
+        <div class="ppros">
+          <div class="pll">Pros</div>
+          <ul>
+            <li>Built for the consumer loop</li>
+            <li>Maximum acquisition and viral growth</li>
+            <li>A true social, consumer-grade feel</li>
+            <li>Native-ready</li>
+          </ul>
+        </div>
+        <div class="pcons">
+          <div class="pll">Cons</div>
+          <ul>
+            <li>More to build</li>
+            <li>Its own codebase and native pipeline</li>
+            <li>Longer to ship</li>
+          </ul>
         </div>
         <a class="plink" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener">See the individual prototype &#8599;</a>
       </div>
       <div class="pcard alt">
         <span class="ptag">The former path</span>
         <h3>Minify the business app</h3>
-        <p class="sum">Streamline the Next business app into a lighter individual experience.</p>
-        <div class="prow">
-          <span class="rk">Best for</span><span class="rv">Speed, one shell to maintain.</span>
-          <span class="rk">Trade-off</span><span class="rv">A consumer app shaped by a business tool, harder to tune the loop.</span>
+        <p class="sum">Streamline the Next ERP app into a lighter individual experience.</p>
+        <div class="ppros">
+          <div class="pll">Pros</div>
+          <ul>
+            <li>Fastest to stand up</li>
+            <li>One shell to maintain</li>
+            <li>Less new engineering</li>
+          </ul>
+        </div>
+        <div class="pcons">
+          <div class="pll">Cons</div>
+          <ul>
+            <li>A consumer app shaped by a business tool</li>
+            <li>Harder to tune the viral loop</li>
+            <li>Lower growth ceiling</li>
+          </ul>
         </div>
         <a class="plink" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener">See the Next prototype &#8599;</a>
       </div>
     </div>
+    <p class="paths-note">We recommend <b>Path A</b>: the growth ceiling is the whole bet.</p>
   </div>
 </section>
 
@@ -644,13 +686,13 @@
     <div class="sec-head center" style="margin:0 auto">
       <span class="eyebrow">Explore it yourself</span>
       <h2>See the whole thing.</h2>
-      <p class="lead">The working prototype, the boards, and the deck.</p>
+      <p class="lead">The prototype, the boards, and the deck.</p>
     </div>
     <div class="linkgroup">
       <div class="gh">Prototypes</div>
       <div class="links">
         <a class="lk" href="https://prototype-liart-seven.vercel.app" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Individual experience prototype</span><span class="lk-d">Mobile-forward, plus the reference business suite</span></span><span class="arrow">&#8599;</span></a>
-        <a class="lk" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Next business Portal prototype</span><span class="lk-d">The emerging business direction</span></span><span class="arrow">&#8599;</span></a>
+        <a class="lk" href="https://toolbelt-next.vercel.app/" target="_blank" rel="noopener"><span class="lk-main"><span class="lk-t">Next business Portal prototype</span><span class="lk-d">The emerging enterprise ERP shell</span></span><span class="arrow">&#8599;</span></a>
       </div>
     </div>
     <div class="linkgroup">
@@ -690,7 +732,7 @@
       </div>
       <div>
         <div class="foot-h">What's inside</div>
-        <p>A live individual + reference-business prototype, the Next business Portal prototype, three FigJam boards (Journey Maps, User Flows, Platform Map), and a proposal PRD. Design system: tb v3 (shadcn + tokens). Type: Geist. All of it a proposal, evolving with the business and product teams and other designers.</p>
+        <p>A live individual prototype, the Next enterprise ERP prototype, four FigJam boards, and a proposal PRD. Design system: tb v3 (shadcn + tokens). Type: Geist. A proposal, evolving with the business and product teams.</p>
       </div>
     </div>
     <div class="foot-bottom">ToolBelt &middot; a proposal to align on direction, not a finished spec &middot; 2026</div>
