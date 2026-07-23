@@ -6,6 +6,19 @@
 <title>ToolBelt · Two experiences, one marketplace</title>
 <script>/* no-flash theme: set before first paint */(function(){try{var t=localStorage.getItem('tb-vision-theme');document.documentElement.setAttribute('data-theme', t==='dark'?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="icon" href="vision-assets/toolbelt-logo-light.svg" type="image/svg+xml">
+<meta name="description" content="A social app for the trades, meeting an enterprise ERP suite. The individual side is the missing link.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolBelt">
+<meta property="og:title" content="Two experiences. One marketplace.">
+<meta property="og:description" content="A social app for the trades, meeting an enterprise ERP suite. The individual side is the missing link.">
+<meta property="og:url" content="https://toolbelt-vision.vercel.app/">
+<meta property="og:image" content="https://toolbelt-vision.vercel.app/vision-assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Two experiences. One marketplace.">
+<meta name="twitter:description" content="A social app for the trades, meeting an enterprise ERP suite.">
+<meta name="twitter:image" content="https://toolbelt-vision.vercel.app/vision-assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -226,6 +239,12 @@
   :root[data-theme="dark"] .theme-toggle .sun{display:none}
   :root[data-theme="dark"] .theme-toggle .moon{display:block}
   .nav-actions{display:flex;align-items:center;gap:12px}
+  /* theme-aware logo: light logo has a black wordmark, dark logo a white one */
+  .logo img{display:block}
+  .logo-l{display:block}
+  .logo-d{display:none}
+  :root[data-theme="dark"] .logo-l{display:none}
+  :root[data-theme="dark"] .logo-d{display:block}
 
   /* ===== hero background effect (15a): soft brand glow + drifting beams, behind content ===== */
   .hero-fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
@@ -318,7 +337,7 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="logo" href="#top"><img src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:24px;width:auto;display:block"></a>
+    <a class="logo" href="#top"><img class="logo-l" src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:24px;width:auto"><img class="logo-d" src="vision-assets/toolbelt-logo-dark.svg" alt="ToolBelt" style="height:24px;width:auto"></a>
     <div class="nav-links">
       <a href="#model">The model</a>
       <a href="#individual">Individual</a>
@@ -717,7 +736,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <img src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:22px;width:auto">
+      <img class="logo-l" src="vision-assets/toolbelt-logo-light.svg" alt="ToolBelt" style="height:22px;width:auto"><img class="logo-d" src="vision-assets/toolbelt-logo-dark.svg" alt="ToolBelt" style="height:22px;width:auto">
       <span class="foot-tag">Product vision &middot; internal proposal</span>
     </div>
     <div class="foot-grid">
