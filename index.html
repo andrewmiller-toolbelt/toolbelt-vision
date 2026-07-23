@@ -116,6 +116,13 @@
   .phone.small{width:150px;opacity:.94}
   .phone img{display:block;width:100%;height:390px;object-fit:cover;object-position:top}
   .phone.small img{height:330px}
+  /* mobile: let the phone rows shrink to fit so 3 frames never force horizontal scroll */
+  @media(max-width:560px){
+    .phones,.pf-screens{gap:10px;width:100%;max-width:100%}
+    .phones .phone,.pf-screens .phone{flex:1 1 0;width:auto;min-width:0}
+    .phone img{height:300px}
+    .phone.small img{height:270px}
+  }
   .browser{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 24px 60px -30px rgba(12,10,9,.35)}
   .browser .bar{height:38px;background:var(--bg-3);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 14px}
   .browser .bar i{width:10px;height:10px;border-radius:50%;background:#d6d3d1;display:block}
